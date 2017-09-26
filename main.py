@@ -1,5 +1,6 @@
 import utils
 import sys
+from person import Person
 
 def main():
 	attendFileName = sys.argv[1]
@@ -7,10 +8,15 @@ def main():
 	attendData = utils.readCSV(attendFileName)
 	statsData = utils.readCSV(statsFileName)
 
-	for row in attendData:
-		print(row)
+	people = {}
 	for row in statsData:
-		print(row)
+		p = Person(row)
+		people[p.name] = p
+
+	for row in attendData:
+		if row[1] == 'yes':
+			print(people[row[0]].str())
+	
 
 
 
