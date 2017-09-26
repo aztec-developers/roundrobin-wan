@@ -13,9 +13,7 @@ def main():
 		p = Person(row)
 		people[p.name] = p
 
-	for row in attendData:
-		if row[1] == 'yes':
-			print(people[row[0]].str())
+	utils.getGitHubStats('asdf')
 	
 
 
